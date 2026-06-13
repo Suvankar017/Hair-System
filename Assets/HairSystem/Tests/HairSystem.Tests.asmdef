@@ -1,0 +1,17 @@
+{
+    "name": "HairSystem.Tests",
+    "rootNamespace": "HairSystem.Tests",
+    "references": [
+        "GUID:be9ebfcf8ac09364c805ba292f5a34fa",
+        "GUID:f7d89952e18738546ba58a840b685eaa"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

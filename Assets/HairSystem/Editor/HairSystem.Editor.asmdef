@@ -1,0 +1,18 @@
+{
+    "name": "HairSystem.Editor",
+    "rootNamespace": "HairSystem.Editor",
+    "references": [
+        "GUID:be9ebfcf8ac09364c805ba292f5a34fa"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
