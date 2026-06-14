@@ -15,6 +15,10 @@ namespace HairSystem.Configuration.Generation
 
         [SerializeField]
         [Min(0f)]
+        private float _minimumLength = 0.1f;
+
+        [SerializeField]
+        [Min(0f)]
         private float _maximumLength = 2f;
 
         [SerializeField]
@@ -38,6 +42,14 @@ namespace HairSystem.Configuration.Generation
             get
             {
                 return _pointCount;
+            }
+        }
+
+        public float MinimumLength
+        {
+            get
+            {
+                return _minimumLength;
             }
         }
 
