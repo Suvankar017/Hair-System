@@ -6,6 +6,9 @@ namespace HairSystem.Configuration.Generation
     public sealed class HairRegionGenerationConfig
     {
         [SerializeField]
+        private bool _enabled = true;
+
+        [SerializeField]
         [Min(0)]
         private int _strandCount = 100;
 
@@ -28,6 +31,20 @@ namespace HairSystem.Configuration.Generation
         [SerializeField]
         [Min(0f)]
         private float _defaultTipWidth = 0.02f;
+
+        [SerializeField]
+        private Color32 _defaultColor = new(40, 20, 10, 255);
+
+        [SerializeField]
+        private AnimationCurve _widthProfile = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+
+        public bool Enabled
+        {
+            get
+            {
+                return _enabled;
+            }
+        }
 
         public int StrandCount
         {
@@ -74,6 +91,31 @@ namespace HairSystem.Configuration.Generation
             get
             {
                 return _defaultTipWidth;
+            }
+        }
+
+        public Color32 DefaultColor
+        {
+            get
+            {
+                return _defaultColor;
+            }
+        }
+
+        public AnimationCurve WidthProfile
+        {
+            get
+            {
+                return _widthProfile;
+            }
+        }
+
+
+        public float LengthRange
+        {
+            get
+            {
+                return _maximumLength - _minimumLength;
             }
         }
     }
