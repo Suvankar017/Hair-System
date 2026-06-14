@@ -1,6 +1,6 @@
-namespace HairSystem.Editor.Authoring.Roots.Tools
+namespace HairSystem.EditorTools.Authoring.Roots.Tools
 {
-    public sealed class HairRootToolState
+    public sealed class HairRootToolbarState
     {
         public HairRootToolType ActiveTool
         {
@@ -8,7 +8,7 @@ namespace HairSystem.Editor.Authoring.Roots.Tools
             set;
         }
 
-        public HairRootToolState()
+        public HairRootToolbarState()
         {
             ActiveTool =
                 HairRootToolType.Select;

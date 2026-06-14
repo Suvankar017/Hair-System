@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using HairSystem.Data.Roots;
 
-namespace HairSystem.Editor.Authoring.Roots.Rendering
+namespace HairSystem.EditorTools.Authoring.Roots.Rendering
 {
     public sealed class HairRootGizmoRenderer
     {
@@ -52,12 +52,18 @@ namespace HairSystem.Editor.Authoring.Roots.Rendering
                     _settings.SelectionScale;
             }
 
+            Color previousColor = Handles.color;
+
+            Handles.color = selected ? Color.yellow : Color.white;
+
             Handles.DotHandleCap(
                 0,
                 position,
                 Quaternion.identity,
                 size,
                 EventType.Repaint);
+
+            Handles.color = previousColor;
         }
 
         private void DrawDirection(

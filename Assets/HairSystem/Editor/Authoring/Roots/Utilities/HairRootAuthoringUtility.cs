@@ -1,13 +1,12 @@
 using HairSystem.Authoring.Roots;
 using HairSystem.Data.Roots;
-using HairSystem.Editor.Authoring.Roots.Components;
 
-namespace HairSystem.Editor.Authoring.Roots.Utilities
+namespace HairSystem.EditorTools.Authoring.Roots.Utilities
 {
     public static class HairRootAuthoringUtility
     {
         public static void LoadFromAsset(
-            HairRootAuthoringComponent component)
+            HairRootAuthoringBehaviour component)
         {
             HairRootRegionAsset asset =
                 component.Asset;
@@ -31,7 +30,7 @@ namespace HairSystem.Editor.Authoring.Roots.Utilities
         }
 
         public static void SaveToAsset(
-            HairRootAuthoringComponent component)
+            HairRootAuthoringBehaviour component)
         {
             HairRootRegionAsset asset =
                 component.Asset;

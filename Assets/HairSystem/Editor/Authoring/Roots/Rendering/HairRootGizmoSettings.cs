@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HairSystem.Editor.Authoring.Roots.Rendering
+namespace HairSystem.EditorTools.Authoring.Roots.Rendering
 {
     public sealed class HairRootGizmoSettings
     {

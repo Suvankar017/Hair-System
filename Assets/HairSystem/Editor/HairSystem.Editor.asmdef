@@ -1,6 +1,6 @@
 {
     "name": "HairSystem.Editor",
-    "rootNamespace": "HairSystem.Editor",
+    "rootNamespace": "HairSystem.EditorTools",
     "references": [
         "GUID:be9ebfcf8ac09364c805ba292f5a34fa"
     ],

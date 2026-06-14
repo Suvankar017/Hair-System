@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace HairSystem.Editor.Authoring.Roots.Utilities
+namespace HairSystem.EditorTools.Authoring.Roots.Utilities
 {
     public static class HairRootHandleUtility
     {

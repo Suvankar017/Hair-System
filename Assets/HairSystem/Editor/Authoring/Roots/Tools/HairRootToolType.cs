@@ -1,4 +1,4 @@
-namespace HairSystem.Editor.Authoring.Roots.Tools
+namespace HairSystem.EditorTools.Authoring.Roots.Tools
 {
     public enum HairRootToolType
     {

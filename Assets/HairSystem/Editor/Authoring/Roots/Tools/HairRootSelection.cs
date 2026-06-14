@@ -1,36 +1,66 @@
-namespace HairSystem.Editor.Authoring.Roots.Tools
+using System.Collections.Generic;
+
+namespace HairSystem.EditorTools.Authoring.Roots.Tools
 {
     public sealed class HairRootSelection
     {
-        public int SelectedIndex
+        private readonly HashSet<int> _selectedIndices;
+
+        public IReadOnlyCollection<int> SelectedIndices
         {
-            get;
-            private set;
+            get
+            {
+                return _selectedIndices;
+            }
         }
 
         public bool HasSelection
         {
-            get;
-            private set;
+            get
+            {
+                return _selectedIndices.Count > 0;
+            }
         }
 
-        public void Select(
+        public HairRootSelection()
+        {
+            _selectedIndices =
+                new HashSet<int>();
+        }
+
+        public void SelectSingle(
             int index)
         {
-            SelectedIndex =
-                index;
+            _selectedIndices.Clear();
 
-            HasSelection =
-                true;
+            _selectedIndices.Add(
+                index);
+        }
+
+        public void Add(
+            int index)
+        {
+            _selectedIndices.Add(
+                index);
+        }
+
+        public bool Contains(
+            int index)
+        {
+            return _selectedIndices.Contains(
+                index);
+        }
+
+        public void Remove(
+            int index)
+        {
+            _selectedIndices.Remove(
+                index);
         }
 
         public void Clear()
         {
-            SelectedIndex =
-                -1;
-
-            HasSelection =
-                false;
+            _selectedIndices.Clear();
         }
     }
 }

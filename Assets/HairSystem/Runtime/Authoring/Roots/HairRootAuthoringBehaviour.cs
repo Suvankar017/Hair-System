@@ -1,12 +1,14 @@
 using UnityEngine;
-using HairSystem.Authoring.Roots;
 using HairSystem.Data.Roots;
 
-namespace HairSystem.Editor.Authoring.Roots.Components
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+namespace HairSystem.Authoring.Roots
 {
     [ExecuteAlways]
-    public sealed class HairRootAuthoringComponent
-        : MonoBehaviour
+    public sealed class HairRootAuthoringBehaviour : MonoBehaviour
     {
         [SerializeField]
         private HairRootRegionAsset _asset;
@@ -31,18 +33,21 @@ namespace HairSystem.Editor.Authoring.Roots.Components
             }
         }
 
-        public void SetRoots(
-            HairRootData[] roots)
+        public void SetRoots(HairRootData[] roots)
         {
-            _roots =
-                roots;
+            _roots = roots;
         }
 
-        public void SetAsset(
-            HairRootRegionAsset asset)
+        public void SetAsset(HairRootRegionAsset asset)
         {
-            _asset =
-                asset;
+            _asset = asset;
+        }
+
+        public void RecordUndo(string operationName)
+        {
+#if UNITY_EDITOR
+            Undo.RecordObject(this, operationName);
+#endif
         }
     }
 }

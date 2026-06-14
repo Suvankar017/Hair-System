@@ -1,8 +1,8 @@
-using HairSystem.Editor.Authoring.Roots.Components;
+using HairSystem.Authoring.Roots;
 using UnityEditor;
 using UnityEngine;
 
-namespace HairSystem.Editor.Authoring.Roots.Tools
+namespace HairSystem.EditorTools.Authoring.Roots.Tools
 {
     public sealed class HairRootToolContext
     {
@@ -16,7 +16,7 @@ namespace HairSystem.Editor.Authoring.Roots.Tools
             get;
         }
 
-        public HairRootAuthoringComponent Component
+        public HairRootAuthoringBehaviour Component
         {
             get;
         }
@@ -29,7 +29,7 @@ namespace HairSystem.Editor.Authoring.Roots.Tools
         public HairRootToolContext(
             SceneView sceneView,
             Event currentEvent,
-            HairRootAuthoringComponent component,
+            HairRootAuthoringBehaviour component,
             HairRootSelection selection)
         {
             SceneView =

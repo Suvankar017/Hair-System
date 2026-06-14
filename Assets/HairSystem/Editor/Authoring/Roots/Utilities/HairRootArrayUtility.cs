@@ -1,6 +1,6 @@
 using HairSystem.Data.Roots;
 
-namespace HairSystem.Editor.Authoring.Roots.Utilities
+namespace HairSystem.EditorTools.Authoring.Roots.Utilities
 {
     public static class HairRootArrayUtility
     {
