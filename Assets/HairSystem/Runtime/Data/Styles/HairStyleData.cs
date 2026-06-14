@@ -5,13 +5,24 @@ namespace HairSystem.Data.Styles
     [System.Serializable]
     public struct HairStyleData
     {
-        public HairStyleType StyleType;
+        private HairStyleType _styleType;
 
-        public HairStyleData(
-            HairStyleType styleType)
+        public HairStyleType StyleType
         {
-            StyleType =
-                styleType;
+            get
+            {
+                return _styleType;
+            }
+        }
+
+        public HairStyleData(HairStyleType styleType)
+        {
+            _styleType = styleType;
+        }
+
+        public void SetStyle(HairStyleType styleType)
+        {
+            _styleType = styleType;
         }
     }
 }

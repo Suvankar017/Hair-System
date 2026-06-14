@@ -2,29 +2,96 @@ using HairSystem.Data.Enums;
 using HairSystem.Data.Points;
 using HairSystem.Data.Styles;
 using HairSystem.Optimization.Dirty;
+using UnityEngine;
 
 namespace HairSystem.Data.Strands
 {
     [System.Serializable]
     public sealed class HairStrandData
     {
-        public int StrandId;
+        private readonly int _strandId;
 
-        public int RootIndex;
+        private readonly int _rootIndex;
 
-        public float CurrentLength;
+        private float _currentLength;
 
-        public float MaximumLength;
+        private readonly float _maximumLength;
 
-        public float MotionEnergy;
+        private float _motionEnergy;
 
-        public HairSimulationState SimulationState;
+        private HairSimulationState _simulationState;
 
-        public HairStyleData StyleData;
+        private HairStyleData _styleData;
 
-        public HairDirtyState DirtyState;
+        private HairDirtyState _dirtyState;
 
-        public HairPointData[] Points;
+        private readonly HairPointData[] _points;
+
+
+        public int StrandId
+        {
+            get
+            {
+                return _strandId;
+            }
+        }
+
+        public int RootIndex
+        {
+            get
+            {
+                return _rootIndex;
+            }
+        }
+
+        public float CurrentLength
+        {
+            get
+            {
+                return _currentLength;
+            }
+        }
+
+        public float MaximumLength
+        {
+            get
+            {
+                return _maximumLength;
+            }
+        }
+
+        public float MotionEnergy
+        {
+            get
+            {
+                return _motionEnergy;
+            }
+        }
+
+        public HairSimulationState SimulationState
+        {
+            get
+            {
+                return _simulationState;
+            }
+        }
+
+        public HairStyleData StyleData
+        {
+            get
+            {
+                return _styleData;
+            }
+        }
+
+        public HairDirtyState DirtyState
+        {
+            get
+            {
+                return _dirtyState;
+            }
+        }
+
 
         public HairStrandData(
             int strandId,
@@ -32,33 +99,48 @@ namespace HairSystem.Data.Strands
             float maximumLength,
             HairPointData[] points)
         {
-            StrandId =
-                strandId;
+            _strandId = strandId;
 
-            RootIndex =
-                rootIndex;
+            _rootIndex = rootIndex;
 
-            CurrentLength =
-                maximumLength;
+            _currentLength = maximumLength;
 
-            MaximumLength =
-                maximumLength;
+            _maximumLength = maximumLength;
 
-            MotionEnergy =
-                0f;
+            _motionEnergy = 0f;
 
-            SimulationState =
-                HairSimulationState.Active;
+            _simulationState = HairSimulationState.Active;
 
-            StyleData =
-                new HairStyleData(
-                    HairStyleType.None);
+            _styleData = new HairStyleData(HairStyleType.None);
 
-            DirtyState =
-                new HairDirtyState();
+            _dirtyState = new HairDirtyState();
 
-            Points =
-                points;
+            _points = points;
+        }
+
+        public void SetCurrentLength(float length)
+        {
+            _currentLength = Mathf.Clamp(length, 0f, _maximumLength);
+        }
+
+        public void SetSimulationState(HairSimulationState state)
+        {
+            _simulationState = state;
+        }
+
+        public void SetMotionEnergy(float energy)
+        {
+            _motionEnergy = energy;
+        }
+
+        public void SetStyle(HairStyleData styleData)
+        {
+            _styleData = styleData;
+        }
+
+        public HairPointData[] GetPoints()
+        {
+            return _points;
         }
     }
 }

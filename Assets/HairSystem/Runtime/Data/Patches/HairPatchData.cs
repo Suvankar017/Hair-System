@@ -27,14 +27,6 @@ namespace HairSystem.Data.Patches
             }
         }
 
-        public Color32[] Pixels
-        {
-            get
-            {
-                return _pixels;
-            }
-        }
-
         public HairPatchData(int width, int height, Color32 defaultColor)
         {
             _width = Mathf.Max(1, width);
@@ -62,6 +54,11 @@ namespace HairSystem.Data.Patches
         public void SetPixel(int x, int y, Color32 color)
         {
             _pixels[GetIndex(x, y)] = color;
+        }
+
+        public Color32[] GetPixels()
+        {
+            return _pixels;
         }
     }
 }

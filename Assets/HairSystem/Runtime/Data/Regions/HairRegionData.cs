@@ -20,19 +20,16 @@ namespace HairSystem.Data.Regions
         public HairRegionData(
             HairRegionType regionType,
             HairRootData[] roots,
-            HairPatchData patch)
+            HairPatchData patch,
+            List<HairStrandData> strands)
         {
-            RegionType =
-                regionType;
+            RegionType = regionType;
 
-            Roots =
-                roots;
+            Roots = roots;
 
-            Patch =
-                patch;
+            Patch = patch;
 
-            Strands =
-                new List<HairStrandData>();
+            Strands = strands;
         }
     }
 }

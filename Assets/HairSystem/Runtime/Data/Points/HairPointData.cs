@@ -20,20 +20,15 @@ namespace HairSystem.Data.Points
             float width,
             Color32 color)
         {
-            Position =
-                position;
+            Position = position;
 
-            PreviousPosition =
-                position;
+            PreviousPosition = position;
 
-            RestPosition =
-                position;
+            RestPosition = position;
 
-            Width =
-                width;
+            Width = width;
 
-            Color =
-                color;
+            Color = color;
         }
     }
 }
