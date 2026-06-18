@@ -54,7 +54,7 @@ namespace HairSystem.EditorTools.Authoring.Roots.Tools
                         worldPosition);
 
             Vector2 localDirection =
-                Vector2.up;
+                Vector2.down;
 
             HairRootData root =
                 new HairRootData(
@@ -68,6 +68,8 @@ namespace HairSystem.EditorTools.Authoring.Roots.Tools
 
             behaviour.SetRoots(
                 roots);
+
+            UnityEditor.EditorUtility.SetDirty(behaviour);
 
             context.Selection
                 .SelectSingle(

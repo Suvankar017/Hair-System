@@ -70,11 +70,26 @@ namespace HairSystem.EditorTools.Authoring.Roots.Rendering
             Vector3 position,
             Vector3 direction)
         {
-            Handles.DrawLine(
-                position,
+            Vector3 endPosition =
                 position +
                 direction.normalized *
-                _settings.DirectionLength);
+                _settings.DirectionLength;
+
+            Handles.DrawLine(
+                position,
+                endPosition);
+
+            float arrowSize =
+                HandleUtility.GetHandleSize(
+                    endPosition) *
+                0.08f;
+
+            Handles.ArrowHandleCap(
+                0,
+                endPosition,
+                Quaternion.LookRotation(Vector3.forward, direction),
+                arrowSize,
+                EventType.Repaint);
         }
     }
 }

@@ -1,7 +1,8 @@
-using HairSystem.Data.Roots;
 using HairSystem.Authoring.Roots;
+using HairSystem.Data.Roots;
 using HairSystem.EditorTools.Authoring.Roots.Rendering;
 using HairSystem.EditorTools.Authoring.Roots.Tools;
+using HairSystem.EditorTools.Authoring.Roots.Utilities;
 using UnityEditor;
 using UnityEngine;
 
@@ -18,6 +19,8 @@ namespace HairSystem.EditorTools.Authoring.Roots.Editors
         private readonly HairRootGizmoRenderer _renderer;
 
         private readonly HairRootToolbarRenderer _toolbar;
+
+        private HairRootAuthoringBehaviour _currentBehaviour;
 
         public HairRootSceneEditor()
         {
@@ -49,14 +52,30 @@ namespace HairSystem.EditorTools.Authoring.Roots.Editors
             _toolRegistry.Register(
                 HairRootToolType.Place,
                 new HairRootPlaceTool());
+
+            _toolRegistry.Register(
+                HairRootToolType.Move,
+                new HairRootMoveTool());
+
+            _toolRegistry.Register(
+                HairRootToolType.Rotate,
+                new HairRootRotateTool());
+
+            _toolRegistry.Register(
+                HairRootToolType.Delete,
+                new HairRootDeleteTool());
         }
 
         public void Draw(HairRootAuthoringBehaviour behaviour)
         {
+            _currentBehaviour = behaviour;
+
             DrawToolbar();
 
             DrawRoots(
                 behaviour);
+
+            HandleKeyboardShortcuts();
 
             ExecuteTool(
                 behaviour);
@@ -98,6 +117,30 @@ namespace HairSystem.EditorTools.Authoring.Roots.Editors
             }
         }
 
+        private void HandleKeyboardShortcuts()
+        {
+            Event currentEvent =
+                Event.current;
+
+            if (currentEvent.type !=
+                EventType.KeyDown)
+            {
+                return;
+            }
+
+            switch (currentEvent.keyCode)
+            {
+                case KeyCode.Delete:
+                case KeyCode.Backspace:
+
+                    DeleteSelection();
+
+                    currentEvent.Use();
+
+                    break;
+            }
+        }
+
         private void ExecuteTool(
             HairRootAuthoringBehaviour component)
         {
@@ -113,6 +156,35 @@ namespace HairSystem.EditorTools.Authoring.Roots.Editors
                     _toolbarState.ActiveTool)
                 .OnSceneGUI(
                     context);
+        }
+
+        private void DeleteSelection()
+        {
+            if (!_selection.HasSelection)
+            {
+                return;
+            }
+
+            int selectedIndex =
+                _selection.PrimarySelection;
+
+            _currentBehaviour.RecordUndo(
+                "Delete Hair Root");
+
+            var roots =
+                HairRootArrayUtility.RemoveAt(
+                    _currentBehaviour.Roots,
+                    selectedIndex);
+
+            _currentBehaviour.SetRoots(
+                roots);
+
+            EditorUtility.SetDirty(
+                _currentBehaviour);
+
+            _selection.Clear();
+
+            SceneView.RepaintAll();
         }
     }
 }

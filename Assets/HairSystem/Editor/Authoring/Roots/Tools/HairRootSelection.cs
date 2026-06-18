@@ -6,6 +6,8 @@ namespace HairSystem.EditorTools.Authoring.Roots.Tools
     {
         private readonly HashSet<int> _selectedIndices;
 
+        private int _primarySelection;
+
         public IReadOnlyCollection<int> SelectedIndices
         {
             get
@@ -22,10 +24,29 @@ namespace HairSystem.EditorTools.Authoring.Roots.Tools
             }
         }
 
+        public int Count
+        {
+            get
+            {
+                return _selectedIndices.Count;
+            }
+        }
+
+        public int PrimarySelection
+        {
+            get
+            {
+                return _primarySelection;
+            }
+        }
+
         public HairRootSelection()
         {
             _selectedIndices =
                 new HashSet<int>();
+
+            _primarySelection =
+                -1;
         }
 
         public void SelectSingle(
@@ -35,6 +56,9 @@ namespace HairSystem.EditorTools.Authoring.Roots.Tools
 
             _selectedIndices.Add(
                 index);
+
+            _primarySelection =
+                index;
         }
 
         public void Add(
@@ -42,6 +66,12 @@ namespace HairSystem.EditorTools.Authoring.Roots.Tools
         {
             _selectedIndices.Add(
                 index);
+
+            if (_primarySelection < 0)
+            {
+                _primarySelection =
+                    index;
+            }
         }
 
         public bool Contains(
@@ -56,11 +86,20 @@ namespace HairSystem.EditorTools.Authoring.Roots.Tools
         {
             _selectedIndices.Remove(
                 index);
+
+            if (_primarySelection == index)
+            {
+                _primarySelection =
+                    -1;
+            }
         }
 
         public void Clear()
         {
             _selectedIndices.Clear();
+
+            _primarySelection =
+                -1;
         }
     }
 }

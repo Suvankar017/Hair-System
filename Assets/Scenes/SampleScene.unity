@@ -168,12 +168,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _asset: {fileID: 11400000, guid: febe0b361b226c5488d165c13da61632, type: 2}
   _roots:
-  - LocalPosition: {x: -0.47534078, y: 0.10848902}
+  - LocalPosition: {x: -0.5217544, y: 0.10848902}
     Direction: {x: 0, y: 1}
   - LocalPosition: {x: -0.2976219, y: 0.13912904}
-    Direction: {x: 0, y: 1}
+    Direction: {x: 0.1398581, y: 0.9901716}
   - LocalPosition: {x: -0.736108, y: 0.23861748}
-    Direction: {x: 0, y: 1}
+    Direction: {x: -0.99363065, y: 0.11268567}
   - LocalPosition: {x: -0.5395876, y: 0.4142576}
     Direction: {x: 0, y: 1}
   - LocalPosition: {x: -0.62925005, y: 0.06174913}
@@ -181,7 +181,11 @@ MonoBehaviour:
   - LocalPosition: {x: -0.07776469, y: 0.03349933}
     Direction: {x: 0, y: 1}
   - LocalPosition: {x: -0.10232976, y: 0.35284495}
-    Direction: {x: 0, y: 1}
+    Direction: {x: 0.9017885, y: -0.43217775}
+  - LocalPosition: {x: -0.62992585, y: 0.061834067}
+    Direction: {x: 0, y: -1}
+  - LocalPosition: {x: -0.37711978, y: 0.07193216}
+    Direction: {x: -0.19054116, y: 0.9816792}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
